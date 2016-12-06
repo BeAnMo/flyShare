@@ -1,0 +1,85 @@
+<!--
+TODOS:
+- make this look fancy
+- figure out how to track progress of an upload
+- MOBILE FIRST LAYOUT!!!!!
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/main.css">
+
+    <!--
+	working version	
+	<script src="app.js"></script> 
+	-->
+	<script src="js/ajax.js"></script>
+	<script src="js/dom.js"></script>
+	<script src="js/app.js"></script>
+    <title>flyShare</title>
+  </head>
+
+  <body>
+    <header>
+      <h1>FlyShare</h1>
+      <h5>Sharin' on the Fly!</h5>
+    </header>
+
+    <section class="card top">
+      <!--<h3>Upload File</h3>-->
+      <form id="form" method="POST" enctype="multipart/form-data" action="/Downloads">
+        <input type="file" name="fileName" id="input" class="none">
+		<label for="input" class="button" id="inputLabel">Choose a file...</label>
+		
+		<div class="upDisplay">
+			<div class="typeCol">
+			  <h4>Type</h4>
+			  <h4><span id="type"></span></h4>
+			</div>
+			
+			<div class="sizeCol">
+			  <h4>Size</h4>
+			  <h4><span id="size"></span></h4>
+			</div>
+		</div>
+		
+        <input type="submit" value="Upload" id="submitBtn" class="none">
+		<label for="submitBtn" class="button">Upload</label>
+      </form>
+    </section>
+
+        
+
+    <section class="card bottom">
+	  <!-- 
+           - replace table with more mobile friendly elements
+		   - stack download files, so newest on top
+           - maybe sort options?
+			 - size
+			 - date
+			 - number of downloads
+			 - uploader (user agent?) - won't work, can't detect
+
+<div class="tableData">	
+	<a href="location" download="filename" class="buttonDL">Filename.ext</button>
+    <p>file type</p> <p> file size </p>
+</div>
+		-->
+      <div class="table">
+          <div class="tableHead2">
+              <div class="cellHead TH"><h3>Shared Files</h3></div>
+            <div class="cellGroup">
+              <div class="cell left TH sortBtn">Type</div>
+              <div class="cell TH sortBtn">Size</div>
+              <div class="cell right TH sortBtn">Date</div>
+            </div>
+          </div>
+          <div id="list"></div>
+      </div>
+    </section>
+	
+  </body>
+</html>
